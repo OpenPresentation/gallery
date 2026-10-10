@@ -1,0 +1,38 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
+  "id": "code",
+  "name": "Code",
+  "summary": "Source code with the explanation beside it.",
+  "tags": [
+    "Visuals"
+  ],
+  "areas": [
+    "title title",
+    "code notes"
+  ],
+  "columns": [
+    3,
+    2
+  ],
+  "rows": [
+    "auto",
+    1
+  ],
+  "regions": {
+    "code": {
+      "accepts": [
+        "code"
+      ],
+      "role": "primary",
+      "flow": "column"
+    },
+    "notes": {
+      "accepts": [
+        "text",
+        "list"
+      ],
+      "role": "supporting",
+      "flow": "column"
+    }
+  }
+}

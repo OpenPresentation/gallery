@@ -31,6 +31,8 @@ jobs:
         run: npm test
       - name: Declarations
         run: npm run typecheck
+      - name: Layout previews are what the pinned opf-render draws
+        run: npm run check:previews
       # A minor or patch release draws every existing record exactly as the previous published release does and removes
       # no id; only a major release may (scripts/stability.mjs, drawn by the pinned published opf-render).
       - name: Pixel stability against the previous published release

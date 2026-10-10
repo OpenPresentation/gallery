@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
+  "id": "chart",
+  "name": "Chart",
+  "summary": "One to six charts, with an optional note.",
+  "tags": [
+    "Visuals"
+  ],
+  "areas": [
+    "title",
+    "charts",
+    "note"
+  ],
+  "columns": [
+    1
+  ],
+  "rows": [
+    "auto",
+    1,
+    "auto"
+  ],
+  "regions": {
+    "charts": {
+      "accepts": [
+        "chart",
+        "group"
+      ],
+      "role": "primary",
+      "flow": "grid"
+    },
+    "note": {
+      "accepts": [
+        "text"
+      ],
+      "role": "supporting",
+      "flow": "none"
+    }
+  }
+}

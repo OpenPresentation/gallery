@@ -52,6 +52,7 @@ jobs:
       - run: npm run verify
       - run: npm test
       - run: npm run typecheck
+      - run: npm run check:previews
       - name: Pixel stability against the previous published release
         run: npm run check:stability
       - run: npm run pack:dry-run

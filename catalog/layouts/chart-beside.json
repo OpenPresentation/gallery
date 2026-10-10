@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
+  "id": "chart-beside",
+  "name": "Chart beside",
+  "summary": "A chart with the takeaway beside it.",
+  "tags": [
+    "Visuals"
+  ],
+  "areas": [
+    "title title",
+    "chart notes"
+  ],
+  "columns": [
+    3,
+    2
+  ],
+  "rows": [
+    "auto",
+    1
+  ],
+  "regions": {
+    "chart": {
+      "accepts": [
+        "chart"
+      ],
+      "role": "primary",
+      "flow": "none"
+    },
+    "notes": {
+      "accepts": [
+        "text",
+        "list",
+        "metric",
+        "quote",
+        "chart"
+      ],
+      "role": "supporting",
+      "flow": "column"
+    }
+  }
+}

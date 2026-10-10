@@ -1,29 +1,35 @@
 {
-  "$schema": "https://openpresentation.org/schema/opf-layout/v1",
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
   "id": "faq",
-  "name": "Faq",
-  "summary": "Question-and-answer pairs that preemptively address audience concerns. Builds trust by tackling objections head-on.",
-  "description": "Question-and-answer pairs that preemptively address audience concerns. Builds trust by tackling objections head-on.",
-  "design": {
-    "titleAlignment": "left",
-    "contentAlignment": "left",
-    "contentBox": true,
-    "contentDirection": "horizontal"
-  },
-  "placeholders": [
-    {
-      "type": "title"
-    },
-    {
-      "type": "list"
-    }
-  ],
+  "name": "FAQ",
+  "summary": "Questions with their answers.",
   "tags": [
-    "Questions",
-    "Objections",
-    "Trust"
+    "Groups of items"
   ],
-  "preview": {
-    "vectorSrc": "https://www.pptx.gallery/layout-previews/faq.svg"
+  "design": {
+    "contentBox": true
+  },
+  "areas": [
+    "title",
+    "questions"
+  ],
+  "columns": [
+    1
+  ],
+  "rows": [
+    "auto",
+    1
+  ],
+  "regions": {
+    "questions": {
+      "accepts": [
+        "list",
+        "text",
+        "group"
+      ],
+      "role": "primary",
+      "flow": "column",
+      "listColumns": "auto"
+    }
   }
 }

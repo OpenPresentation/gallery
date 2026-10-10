@@ -1,0 +1,32 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
+  "id": "team",
+  "name": "Team",
+  "summary": "People: photo, name and role cards.",
+  "tags": [
+    "Mixed"
+  ],
+  "areas": [
+    "title",
+    "people"
+  ],
+  "columns": [
+    1
+  ],
+  "rows": [
+    "auto",
+    1
+  ],
+  "regions": {
+    "people": {
+      "accepts": [
+        "group",
+        "image",
+        "text",
+        "quote"
+      ],
+      "role": "primary",
+      "flow": "grid"
+    }
+  }
+}

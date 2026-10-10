@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openpresentation.org/schema/opf-layout/v2",
+  "id": "section",
+  "name": "Section",
+  "summary": "A divider between parts: the section title and an optional subtitle.",
+  "tags": [
+    "Openers and closers"
+  ],
+  "design": {
+    "titleAlignment": "center",
+    "contentAlignment": "center"
+  },
+  "areas": [
+    "title"
+  ],
+  "columns": [
+    1
+  ],
+  "rows": [
+    1
+  ],
+  "regions": {}
+}
