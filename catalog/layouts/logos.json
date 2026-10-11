@@ -28,5 +28,9 @@
       "flow": "grid",
       "max": 12
     }
+  },
+  "description": "Present organizations, partners or customers as a group. Use a consistent visual scale and add context when the relationship is not obvious.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/logos.svg"
   }
 }

@@ -36,5 +36,9 @@
       "role": "supporting",
       "flow": "column"
     }
+  },
+  "description": "Place a table beside its interpretation. Use the supporting text to explain the conclusion without repeating every cell.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/table-beside.svg"
   }
 }

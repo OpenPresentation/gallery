@@ -113,3 +113,26 @@ Never move or re-push a published tag; fix a problem with a new version.
 ## License
 
 By contributing you agree that your contribution is licensed under the [MIT License](LICENSE) of this repository.
+
+## Gallery 2.0.0 bootstrap
+
+Gallery 2.0.0 must publish before core 0.19, which depends on it. Its build and
+validation need the v2 engines before those engines are on npm. For this release
+only, `scripts/bootstrap-engines.mjs` reads `.github/bootstrap-engines.json`,
+fetches each engine repository's actual default branch, and refuses pins that
+are not full commit hashes reachable from that branch. Merge the candidate engine
+PRs before running these gates; never weaken the ancestry check. The configured
+core candidate retains the 1.x catalog and can build before gallery 2 publishes.
+
+After `npm ci`, the script builds immutable sources with frozen source lockfiles,
+packs core then renderer, and installs the tarballs into node_modules with no
+manifest or lockfile writes. Every existing gallery gate still runs, including
+preview equality and pixel stability. `--verify` checks that the renderer and
+gallery resolve exactly the same core, reports resolved paths and versions and
+refuses changed release manifests. The published gallery remains dependency-free;
+no local dependency ranges enter its tarball. Trusted publishing is unchanged.
+
+After the 0.19 engine releases, raise the ordinary registry development pins and
+remove this configuration/script and workflow steps. Other gallery versions use
+the normal npm-ci registry path automatically; candidate sources do not become
+a dependency of later releases.

@@ -35,5 +35,9 @@
       "role": "supporting",
       "flow": "none"
     }
+  },
+  "description": "Give a chart enough space to show its evidence. Use the title to state the conclusion and labels to explain the measures.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/chart.svg"
   }
 }

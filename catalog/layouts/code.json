@@ -34,5 +34,9 @@
       "role": "supporting",
       "flow": "column"
     }
+  },
+  "description": "Show a code example or technical excerpt. Keep the excerpt focused and use the title or caption to explain its purpose.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/code.svg"
   }
 }

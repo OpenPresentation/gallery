@@ -48,5 +48,9 @@
       "role": "supporting",
       "flow": "grid"
     }
+  },
+  "description": "Combine a prominent visual or message with supporting content. Use it when one element should lead the audience into the details.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/hero.svg"
   }
 }

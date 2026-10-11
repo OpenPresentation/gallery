@@ -32,5 +32,9 @@
       "role": "primary",
       "flow": "grid"
     }
+  },
+  "description": "Show the main themes or principles behind an idea. Give each item a short heading and a comparable amount of detail.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/pillars.svg"
   }
 }

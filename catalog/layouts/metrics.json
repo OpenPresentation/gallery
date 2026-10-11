@@ -39,5 +39,9 @@
       "role": "supporting",
       "flow": "none"
     }
+  },
+  "description": "Highlight a small set of important numbers. Give each number a label and the context needed to interpret it.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/metrics.svg"
   }
 }

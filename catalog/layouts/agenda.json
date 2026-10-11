@@ -27,5 +27,9 @@
       "flow": "column",
       "listColumns": "auto"
     }
+  },
+  "description": "Set expectations by listing the parts of a talk. Longer agendas flow across columns while preserving their order.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/agenda.svg"
   }
 }

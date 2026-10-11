@@ -51,5 +51,9 @@
       "role": "primary",
       "flow": "none"
     }
+  },
+  "description": "Place two bodies of content beside each other. Use it for paired explanations or an argument with supporting evidence.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/two-column.svg"
   }
 }

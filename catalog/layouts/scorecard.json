@@ -31,5 +31,9 @@
       "role": "primary",
       "flow": "grid"
     }
+  },
+  "description": "Summarize performance across comparable measures. State the criteria consistently so the audience can assess the result.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/scorecard.svg"
   }
 }

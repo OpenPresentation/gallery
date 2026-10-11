@@ -34,5 +34,9 @@
       "role": "supporting",
       "flow": "none"
     }
+  },
+  "description": "Present structured data that benefits from precise comparison. Use clear row and column headings and concise cell content.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/table.svg"
   }
 }

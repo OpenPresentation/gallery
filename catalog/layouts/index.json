@@ -3,7 +3,7 @@
   "kind": "layouts",
   "version": "1",
   "description": "The built-in slide layouts of OPF 0.19: 28 grid templates (opf-layout/v2) named by intent, in six groups (Openers and closers, Text, Groups of items, Numbers, Visuals, Mixed), in picker order. Each entry names the record's id, name, one-line summary and group; the full record (areas, columns, rows and regions) lives in the per-id JSON file alongside this index.",
-  "contentSha256": "ad734c81ab009b99335dea7fc01d870d27a032205e6112dce25543443f0ddaac",
+  "contentSha256": "56012a8999cc2ff4bca443d350a21fdd04e097c9c9a85c5947d220cc15ba396e",
   "records": [
     {
       "id": "cover",

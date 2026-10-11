@@ -38,5 +38,9 @@
       "role": "primary",
       "flow": "grid"
     }
+  },
+  "description": "Bring several related measures and visuals into one overview. Keep labels and units consistent so the audience can scan the state quickly.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/dashboard.svg"
   }
 }

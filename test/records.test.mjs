@@ -1,6 +1,6 @@
 // Every record of catalog/ is valid against the companion schema of the PUBLISHED @openpresentation/opf this repository pins
 // (devDependencies), every index against the catalog index schema, and every kind hashes to its index and the manifest. No
-// workspace build of core is involved.
+// Gallery 2.0.0 CI injects immutable merged v2 engine tarballs before these same gates run.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import path from "node:path";
@@ -42,6 +42,10 @@ test("every record is valid against the published core's companion schema", asyn
 test("the layouts are the 28 OPF 0.19 intent templates, in six groups, each passing core's template rules", async () => {
   const { index, records } = await readSnapshotKind(catalogRoot, "layouts");
   assert.deepEqual(records.map((record) => record.id), LAYOUT_IDS);
+  for (const record of records) {
+    assert.ok(record.description?.trim(), `${record.id}: usage description`);
+    assert.equal(record.preview?.vectorSrc, `https://www.pptx.gallery/layout-previews/${record.id}.svg`, `${record.id}: published SVG preview`);
+  }
   assert.deepEqual([...new Set(index.records.map((entry) => entry.group))], ["Openers and closers", "Text", "Groups of items", "Numbers", "Visuals", "Mixed"]);
   for (const record of records) {
     const entry = index.records.find((candidate) => candidate.id === record.id);

@@ -57,5 +57,9 @@
       "role": "supporting",
       "flow": "none"
     }
+  },
+  "description": "Compare alternatives using parallel information. Keep the same criteria and level of detail for every option.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/comparison.svg"
   }
 }

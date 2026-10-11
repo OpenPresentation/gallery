@@ -38,5 +38,9 @@
       "role": "primary",
       "flow": "auto"
     }
+  },
+  "description": "Explain a visual alongside its supporting text. Use the text to direct attention to the meaningful parts of the image.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/image-beside.svg"
   }
 }

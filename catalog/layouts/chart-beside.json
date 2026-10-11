@@ -37,5 +37,9 @@
       "role": "supporting",
       "flow": "column"
     }
+  },
+  "description": "Pair a chart with an explanation of its result. Keep the text focused on the pattern or decision supported by the data.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/chart-beside.svg"
   }
 }

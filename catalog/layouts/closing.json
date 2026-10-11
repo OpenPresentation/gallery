@@ -31,5 +31,9 @@
       "role": "supporting",
       "flow": "auto"
     }
+  },
+  "description": "End with the action the audience should take. Include contact details or a brief thank-you when useful.",
+  "preview": {
+    "vectorSrc": "https://www.pptx.gallery/layout-previews/closing.svg"
   }
 }
