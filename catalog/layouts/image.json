@@ -31,5 +31,8 @@
   "description": "Let one image carry the message. Add a short title or caption to explain what the audience should notice.",
   "preview": {
     "vectorSrc": "https://www.pptx.gallery/layout-previews/image.svg"
+  },
+  "design": {
+    "imageFit": "contain"
   }
 }
