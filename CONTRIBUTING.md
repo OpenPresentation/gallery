@@ -122,15 +122,23 @@ only, `scripts/bootstrap-engines.mjs` reads `.github/bootstrap-engines.json`,
 fetches each engine repository's actual default branch, and refuses pins that
 are not full commit hashes reachable from that branch. Merge the candidate engine
 PRs before running these gates; never weaken the ancestry check. The configured
-core candidate retains the 1.x catalog and can build before gallery 2 publishes.
+core source retains its genuine registry dependency metadata until gallery 2 is
+published; bootstrap staging does not make that metadata registry-installable.
 
-After `npm ci`, the script builds immutable sources with frozen source lockfiles,
-packs core then renderer, and installs the tarballs into node_modules with no
-manifest or lockfile writes. Every existing gallery gate still runs, including
-preview equality and pixel stability. `--verify` checks that the renderer and
-gallery resolve exactly the same core, reports resolved paths and versions and
-refuses changed release manifests. The published gallery remains dependency-free;
-no local dependency ranges enter its tarball. Trusted publishing is unchanged.
+After `npm ci`, the script builds this gallery's static records, then builds the
+immutable core and renderer sources with frozen source lockfiles. It stages three
+development tarballs—gallery, core and renderer—preserving their own versions and
+runtime bytes while recording original and staged manifests and integrity. Core
+builds against the exact local gallery; the renderer builds against that core.
+The tarballs install into node_modules without changing the gallery's manifest,
+lockfile or emitted catalog bytes. Every existing gallery gate still runs,
+including preview equality and pixel stability. `--verify` binds the engine pins
+and current gallery HEAD, checks exact installed manifests and file inventories,
+and requires the engines and gallery to share one core and one gallery. Identity
+evidence is retained under `node_modules/.gallery-bootstrap-evidence/` and uploaded
+by the workflows. The published gallery remains dependency-free; staged local
+dependency ranges never enter its published manifest. Trusted publishing and the
+merged-ancestor, tag and release gates remain unchanged.
 
 After the 0.19 engine releases, raise the ordinary registry development pins and
 remove this configuration/script and workflow steps. Other gallery versions use
