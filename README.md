@@ -143,3 +143,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the checks, releases and the license.
 ## License
 
 [MIT](LICENSE). The records, the previews and the code are all under it; `npm run check:license` checks it.
+
+### Editorial layout defaults
+
+Compact quote, headline-metric and image-side explanation regions opt into `anchor: "middle"`. Long text, lists and analytical views retain top alignment. A pin still selects a named region; its anchor governs content placement within that region. Centering needs a core engine that measures the content kind; older engines may keep unsupported kinds at the top. Explicit deck and slide design continues to override catalog defaults.
+
+Picker examples in `scripts/editorial-previews.mjs` use fictional content and are separate from the unchanged filled/empty stability fixtures. Numeric examples supply units and explicit precision; FAQ previews pair questions with answers, and process previews show ordered actions.

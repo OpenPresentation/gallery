@@ -7,7 +7,7 @@
     "Groups of items"
   ],
   "design": {
-    "contentBox": true
+    "contentBox": false
   },
   "areas": [
     "title",
