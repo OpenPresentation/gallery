@@ -10,8 +10,12 @@
     "contentBox": false
   },
   "areas": [
-    "title",
-    "cards"
+    [
+      "title"
+    ],
+    [
+      "cards"
+    ]
   ],
   "columns": [
     1

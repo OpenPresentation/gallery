@@ -10,8 +10,12 @@
     "contentBox": false
   },
   "areas": [
-    "title",
-    "questions"
+    [
+      "title"
+    ],
+    [
+      "questions"
+    ]
   ],
   "columns": [
     1

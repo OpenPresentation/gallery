@@ -10,8 +10,12 @@
     "contentBox": false
   },
   "areas": [
-    "title",
-    "pillars"
+    [
+      "title"
+    ],
+    [
+      "pillars"
+    ]
   ],
   "columns": [
     1

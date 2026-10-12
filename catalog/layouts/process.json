@@ -11,8 +11,12 @@
     "contentDirection": "horizontal"
   },
   "areas": [
-    "title",
-    "steps"
+    [
+      "title"
+    ],
+    [
+      "steps"
+    ]
   ],
   "columns": [
     1

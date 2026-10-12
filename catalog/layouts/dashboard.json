@@ -10,9 +10,15 @@
     "contentBox": false
   },
   "areas": [
-    "title",
-    "kpis",
-    "charts"
+    [
+      "title"
+    ],
+    [
+      "kpis"
+    ],
+    [
+      "charts"
+    ]
   ],
   "columns": [
     1

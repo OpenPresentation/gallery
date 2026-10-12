@@ -7,8 +7,12 @@
     "Mixed"
   ],
   "areas": [
-    "title",
-    "logos"
+    [
+      "title"
+    ],
+    [
+      "logos"
+    ]
   ],
   "columns": [
     1

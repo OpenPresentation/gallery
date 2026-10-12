@@ -10,9 +10,18 @@
     "contentBox": false
   },
   "areas": [
-    "title title",
-    "first second",
-    "verdict verdict"
+    [
+      "title",
+      "title"
+    ],
+    [
+      "first",
+      "second"
+    ],
+    [
+      "verdict",
+      "verdict"
+    ]
   ],
   "columns": [
     1,
