@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
+import {bootstrapPnpmEnvironment} from './bootstrap-pnpm.mjs';
 import {stageBootstrapPackage,verifyBootstrapInstallation,digest} from './bootstrap-artifacts.mjs';
 import { existsSync, mkdirSync, symlinkSync, lstatSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -13,7 +14,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const statePath = path.join(root, 'node_modules', '.gallery-bootstrap.json');
 const manifest = JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'));
 const pins = JSON.parse(readFileSync(path.join(root, '.github', 'bootstrap-engines.json'), 'utf8'));
-const run = (command, args, cwd = root) => execFileSync(command, args, { cwd, stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8' }).trim();
+let childEnvironment=process.env;
+const run = (command, args, cwd = root) => execFileSync(command, args, { cwd, env:childEnvironment, stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8' }).trim();
 const hashes = () => Object.fromEntries(['package.json', 'package-lock.json'].map(name => [name, createHash('sha256').update(readFileSync(path.join(root, name))).digest('hex')]));
 function packageDigest(directory) {
   const hash = createHash('sha256');
@@ -99,6 +101,8 @@ if (manifest.version !== pins.galleryVersion) {
     if (!/^pnpm@[0-9]+\.[0-9]+\.[0-9]+(?:\+sha.*)?$/.test(manager ?? '')) throw new Error('Core has no exact pnpm packageManager pin');
     const expectedPnpm = manager.slice('pnpm@'.length).split('+')[0];
     if (run('corepack', ['pnpm', '--version'], sources.core) !== expectedPnpm) throw new Error('Corepack pnpm does not match the source pin');
+    childEnvironment=bootstrapPnpmEnvironment(temporary);
+    if (run('pnpm',['--version'],sources.core)!==expectedPnpm) throw new Error('Temporary pnpm shim does not match the source pin');
     // Build local static data first. These are development artifacts, not published engine metadata.
     run('npm',['run','build']);
     const {stagedManifest}=await import(pathToFileURL(path.join(sources.core,'scripts/candidate-gallery-pack.mjs')));
@@ -135,6 +139,7 @@ if (manifest.version !== pins.galleryVersion) {
     writeFileSync(path.join(root,'node_modules/.gallery-bootstrap-evidence/manifest.json'),JSON.stringify(state,null,2)+'\n');
     verify();
   } finally {
+    childEnvironment=process.env;
     rmSync(temporary, { recursive: true, force: true });
   }
 }
