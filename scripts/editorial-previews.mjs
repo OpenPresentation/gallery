@@ -5,7 +5,7 @@ import { templateDeck } from './fixtures.mjs';
 const TITLES = {
   cover: 'A smaller pilot. A clearer decision.', section: 'Test before scaling',
   statement: 'Start small enough to learn quickly', closing: 'Agree the pilot team and start date',
-  text: 'A six-week pilot answers three questions', list: 'Make the next step explicit',
+  text: 'Learn before scaling', list: 'Make the next step explicit',
   'two-column': 'Opportunity and constraints',
   quote: 'A shared view makes decisions easier', metrics: 'Pilot outcomes in three measures',
   chart: 'Completion rose through the pilot', 'chart-beside': 'The largest gain came in week four',
@@ -17,7 +17,7 @@ const TITLES = {
   'image-beside': 'Explain what the audience should notice', image: 'Give the visual room to speak',
   gallery: 'Compare three visual directions', hero: 'One team. One outcome.',
   code: 'Keep the implementation easy to inspect', scorecard: 'Track performance against a target',
-  logos: 'Recognize the organizations involved',
+  logos: 'Recognize the partners',
 };
 const METRICS = [
   { value: 52, label: 'Trial participants', description: 'Illustrative six-week pilot' },
@@ -87,7 +87,14 @@ export function editorialDeck(id, record) {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240"><rect width="600" height="240" fill="#f0f0f0"/>${marks[index % 3]}</svg>`;
       payload = { image: { src: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`, alt: `${name}, fictional geometric mark` } };
     }
+    else if (id === 'gallery' && kind === 'image') {
+      const source = Buffer.from(block.image.src.split(',')[1], 'base64').toString();
+      const variants = [['#7aa7e6','#cfe0f5','#3f8a55','#2f6b42'], ['#d49b74','#fae5cb','#b96b50','#854b48'], ['#9a8fbe','#eee8f5','#756b96','#514767']][index % 3];
+      let variant = source; ['#7aa7e6','#cfe0f5','#3f8a55','#2f6b42'].forEach((color,i) => { variant = variant.replaceAll(color,variants[i]); });
+      payload = { image: { src: `data:image/svg+xml;base64,${Buffer.from(variant).toString('base64')}`, alt: ['Blue and green landscape palette','Warm earth landscape palette','Purple landscape palette'][index % 3] } };
+    }
     else if (kind === 'image') payload = { image: { ...block.image, alt: 'Illustrative landscape with two green ridges' } };
+    else if (id === 'code' && kind === 'text') payload = { text: 'The reducer adds each item’s value to a running sum. Starting at zero also makes an empty list return zero.' };
     else if (id === 'closing') payload = { text: 'Next step: name the pilot lead and agree the start date.' };
     else if (kind === 'text') payload = { text: id === 'statement'
       ? 'Learn with two teams before expanding the rollout.'

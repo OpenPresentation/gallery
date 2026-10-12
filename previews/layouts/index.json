@@ -31,7 +31,7 @@
     {
       "id": "text",
       "file": "text.svg",
-      "bytes": 3210
+      "bytes": 3170
     },
     {
       "id": "list",
@@ -96,7 +96,7 @@
     {
       "id": "gallery",
       "file": "gallery.svg",
-      "bytes": 3065
+      "bytes": 3017
     },
     {
       "id": "chart",
@@ -121,7 +121,7 @@
     {
       "id": "code",
       "file": "code.svg",
-      "bytes": 2528
+      "bytes": 2720
     },
     {
       "id": "hero",
@@ -141,7 +141,7 @@
     {
       "id": "logos",
       "file": "logos.svg",
-      "bytes": 2278
+      "bytes": 2250
     }
   ]
 }
