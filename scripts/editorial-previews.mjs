@@ -40,7 +40,7 @@ const PEOPLE = [
   ['Kai Moreau', 'Analytics lead', 'Measures completion and task time consistently.'],
 ];
 const chart = (index) => ({ chart: {
-  type: index ? 'line' : 'column',
+  type: index ? 'line' : 'column', axisTitles: { category: 'Week', value: 'Task completion' },
   data: { columns: ['Week', { name: 'Task completion', format: '0%' }],
     rows: [['1', .68], ['2', .72], ['3', .76], ['4', .84]] },
 } });
@@ -69,7 +69,7 @@ export function editorialDeck(id, record) {
     else if (id === 'pillars') payload = { text: ['Clear scope\nTwo teams and one workflow keep the pilot focused.', 'Consistent measures\nTrack completion and task time against a baseline.', 'An explicit decision\nAgree the evidence needed before expanding.'][index % 3] };
     else if (id === 'comparison') payload = { text: ['Option A: focused pilot\nTwo teams, six weeks. Low setup cost and a clear baseline.', 'Option B: broad rollout\nAll teams, three months. Wider reach with greater coordination needs.', 'Recommendation: establish the evidence with Option A before committing to Option B.'][index % 3] };
     else if (kind === 'metric') payload = { metric: id === 'scorecard' ? { ...METRICS[index % 3], description: ['Target: 50 participants', 'Target: at least 80%', 'Target: under 7 min'][index % 3] } : METRICS[index % 3] };
-    else if (kind === 'chart') payload = index === 0 ? chart(0) : { chart: { type: 'bar', data: { columns: ['Team', { name: 'Median task time (min)', format: '0.0' }], rows: [['A', 5.8], ['B', 6.7]] } } };
+    else if (kind === 'chart') payload = index === 0 ? chart(0) : { chart: { type: 'bar', axisTitles: { value: 'Median task time (min)' }, data: { columns: ['Team', { name: 'Median task time (min)', format: '0.0' }], rows: [['A', 5.8], ['B', 6.7]] } } };
     else if (kind === 'table') payload = table();
     else if (kind === 'quote') payload = { quote: {
       text: ['We can now see where participants need help.', 'The weekly review keeps the next step clear.', 'Measure the outcome before expanding the rollout.'][index % 3],
@@ -79,8 +79,13 @@ export function editorialDeck(id, record) {
     else if (kind === 'timeline') payload = { timeline: { events: [{ when: 'Week 1', what: 'Baseline' }, { when: 'Weeks 2–5', what: 'Pilot' }, { when: 'Week 6', what: 'Review and decide' }] } };
     else if (id === 'logos') {
       const name = ['NORTH', 'FIELD', 'STUDIO'][index % 3];
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240"><rect width="600" height="240" fill="#f0f0f0"/><text x="300" y="140" text-anchor="middle" font-family="sans-serif" font-size="64" fill="#263445">${name}</text></svg>`;
-      payload = { image: { src: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`, alt: `${name}, fictional wordmark` } };
+      const marks = [
+        '<path d="M220 170V70l160 100V70" fill="none" stroke="#263445" stroke-width="24"/>',
+        '<path d="M230 60h140v24H254v34h96v24h-96v38h-24z" fill="#263445"/>',
+        '<circle cx="300" cy="120" r="72" fill="none" stroke="#263445" stroke-width="20"/><path d="M260 120h80M300 80v80" stroke="#263445" stroke-width="18"/>',
+      ];
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240"><rect width="600" height="240" fill="#f0f0f0"/>${marks[index % 3]}</svg>`;
+      payload = { image: { src: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`, alt: `${name}, fictional geometric mark` } };
     }
     else if (kind === 'image') payload = { image: { ...block.image, alt: 'Illustrative landscape with two green ridges' } };
     else if (id === 'closing') payload = { text: 'Next step: name the pilot lead and agree the start date.' };

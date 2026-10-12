@@ -101,12 +101,12 @@
     {
       "id": "chart",
       "file": "chart.svg",
-      "bytes": 5622
+      "bytes": 6070
     },
     {
       "id": "chart-beside",
       "file": "chart-beside.svg",
-      "bytes": 5786
+      "bytes": 6242
     },
     {
       "id": "table",
@@ -131,7 +131,7 @@
     {
       "id": "dashboard",
       "file": "dashboard.svg",
-      "bytes": 9533
+      "bytes": 10181
     },
     {
       "id": "team",
@@ -141,7 +141,7 @@
     {
       "id": "logos",
       "file": "logos.svg",
-      "bytes": 2311
+      "bytes": 2278
     }
   ]
 }
