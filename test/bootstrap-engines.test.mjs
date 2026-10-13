@@ -15,6 +15,7 @@ function fixture() {
   mkdirSync(path.join(root, 'scripts'));
   copyFileSync(new URL('../scripts/bootstrap-engines.mjs', import.meta.url), path.join(root, 'scripts/bootstrap-engines.mjs'));
   copyFileSync(new URL('../scripts/bootstrap-pnpm.mjs', import.meta.url), path.join(root, 'scripts/bootstrap-pnpm.mjs'));
+  copyFileSync(new URL('../scripts/bootstrap-command.mjs', import.meta.url), path.join(root, 'scripts/bootstrap-command.mjs'));
   copyFileSync(new URL('../scripts/bootstrap-artifacts.mjs', import.meta.url), path.join(root, 'scripts/bootstrap-artifacts.mjs'));
   json('package.json', { version: '2.0.0', type: 'module' });
   json('package-lock.json', {});

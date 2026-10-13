@@ -6,7 +6,8 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import {stageBootstrapPackage,verifyBootstrapInstallation} from '../scripts/bootstrap-artifacts.mjs';
-const run=(command,args,cwd)=>execFileSync(command,args,{cwd,encoding:'utf8',stdio:['ignore','pipe','pipe']});
+import {bootstrapInvocation} from '../scripts/bootstrap-command.mjs';
+const run=(command,args,cwd)=>{const invocation=bootstrapInvocation(command,args);return execFileSync(invocation.command,invocation.args,{cwd,encoding:'utf8',stdio:['ignore','pipe','pipe']});};
 const tar=(file,flags,args=[],options={})=>execFileSync('tar',[flags,path.basename(file),...args],{cwd:path.dirname(file),encoding:'utf8',...options});
 test('three development tarballs preserve versions/runtime and share exact core/gallery',()=>{
  const root=realpathSync(mkdtempSync(path.join(tmpdir(),'gallery-artifacts-')));
