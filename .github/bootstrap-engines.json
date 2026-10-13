@@ -1,11 +1,11 @@
 {
-  "galleryVersion": "2.0.0",
+  "galleryVersion": "3.0.0",
   "core": {
     "repository": "OpenPresentation/opf",
-    "sha": "00022a4ed3d2576bd09c003aa38659ed5d014bc5"
+    "sha": "b7eb52a79dc99ea2403318e6558979f4fc0cd0e5"
   },
   "render": {
     "repository": "OpenPresentation/opf-render",
-    "sha": "0e18fb532736248ff7c96a2a3c05cbf32a86b68c"
+    "sha": "f95353c3dca1e5e48e50030c2841d86204fdb6f4"
   }
 }

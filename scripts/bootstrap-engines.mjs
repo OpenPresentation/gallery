@@ -71,9 +71,10 @@ if (manifest.version !== pins.galleryVersion) {
   if (existsSync(statePath)) throw new Error('Unexpected bootstrap state outside the configured gallery release');
   console.log('Registry engines: ' + JSON.stringify(resolved()));
 } else if (process.argv.includes('--verify')) {
+  assert.equal(manifest.opf?.catalogSchema,3,'Gallery 3 bootstrap requires catalog schema 3');
   verify();
 } else {
-  if (pins.galleryVersion !== '2.0.0') throw new Error('Bootstrap is restricted to gallery 2.0.0');
+  if (pins.galleryVersion !== '3.0.0' || manifest.opf?.catalogSchema !== 3) throw new Error('Bootstrap is restricted to gallery 3.0.0 with catalog schema 3');
   const expectedRepositories = { core: 'OpenPresentation/opf', render: 'OpenPresentation/opf-render' };
   for (const [name, repository] of Object.entries(expectedRepositories)) {
     if (pins[name].repository !== repository || !/^[a-f0-9]{40}$/.test(pins[name].sha)) throw new Error(`Invalid immutable ${name} pin`);
