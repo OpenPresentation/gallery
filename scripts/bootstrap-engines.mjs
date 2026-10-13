@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {bootstrapPnpmEnvironment} from './bootstrap-pnpm.mjs';
 import {bootstrapInvocation} from './bootstrap-command.mjs';
 import {stageBootstrapPackage,verifyBootstrapInstallation,digest} from './bootstrap-artifacts.mjs';
-import { existsSync, mkdirSync, symlinkSync, lstatSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, symlinkSync, lstatSync, mkdtempSync, readFileSync, readdirSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
@@ -84,7 +84,7 @@ if (manifest.version !== pins.galleryVersion) {
     if (pins[name].repository !== repository || !/^[a-f0-9]{40}$/.test(pins[name].sha)) throw new Error(`Invalid immutable ${name} pin`);
   }
   const original = hashes();
-  const temporary = mkdtempSync(path.join(tmpdir(), 'gallery-engines-'));
+  const temporary = realpathSync(mkdtempSync(path.join(tmpdir(), 'gallery-engines-')));
   try {
     const sources = {};
     for (const name of ['core', 'render']) {
