@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import {bootstrapPnpmEnvironment} from './bootstrap-pnpm.mjs';
+import {bootstrapInvocation} from './bootstrap-command.mjs';
 import {stageBootstrapPackage,verifyBootstrapInstallation,digest} from './bootstrap-artifacts.mjs';
 import { existsSync, mkdirSync, symlinkSync, lstatSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -15,7 +16,10 @@ const statePath = path.join(root, 'node_modules', '.gallery-bootstrap.json');
 const manifest = JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'));
 const pins = JSON.parse(readFileSync(path.join(root, '.github', 'bootstrap-engines.json'), 'utf8'));
 let childEnvironment=process.env;
-const run = (command, args, cwd = root) => execFileSync(command, args, { cwd, env:childEnvironment, stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8' }).trim();
+const run = (command, args, cwd = root) => {
+ const invocation=bootstrapInvocation(command,args,{env:childEnvironment});
+ return execFileSync(invocation.command, invocation.args, { cwd, env:childEnvironment, stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8' }).trim();
+};
 const hashes = () => Object.fromEntries(['package.json', 'package-lock.json'].map(name => [name, createHash('sha256').update(readFileSync(path.join(root, name))).digest('hex')]));
 function packageDigest(directory) {
   const hash = createHash('sha256');
