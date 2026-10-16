@@ -135,8 +135,11 @@ After `npm ci`, the script builds this gallery's static records, then builds the
 immutable core and renderer sources with frozen source lockfiles. It stages three
 development tarballs—gallery, core and renderer—preserving their own versions and
 runtime bytes while recording original and staged manifests and integrity. Core
-builds against the exact local gallery; the renderer builds against that core.
-The tarballs install into node_modules without changing the gallery's manifest,
+builds against the exact local gallery. The pinned renderer build only copies
+its source files to dist; it does not load Core. After all three tarballs exist,
+they install together as one selected graph, so no partial engine install can
+resolve unrelated optional peers. The drawing and validation gates use that
+exact installed core and renderer. The tarballs install without changing the gallery's manifest,
 lockfile or emitted catalog bytes. Every existing gallery gate still runs,
 including preview equality and pixel stability. `--verify` binds the engine pins
 and current gallery HEAD, checks exact installed manifests and file inventories,
