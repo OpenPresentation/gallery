@@ -66,19 +66,22 @@ Use Node 24 (`engines.node` is `>=22`) and npm.
 
 ```sh
 npm ci
+node scripts/bootstrap-engines.mjs  # Gallery 3.0.0: merged immutable engine sources; see below
 npm run check:license     # MIT: LICENSE, package.json, published files
 npm run verify            # every kind hashes to its index and the manifest
-npm test                  # build; every record valid against the published @openpresentation/opf; package shape; previews
-npm run typecheck         # the declarations against the published core's Catalog
+npm test                  # build; every record valid against the selected core; package shape; previews
+npm run typecheck         # the declarations against the selected core's Catalog
 npm run check:previews    # the layout previews are what the pinned opf-render draws (npm run previews rewrites them)
 npm run check:stability   # the version rule against the previous published release
 npm run pack:dry-run      # the package contents
+node scripts/bootstrap-engines.mjs --verify  # unchanged manifests and exact selected engine graph
 ```
 
-CI (`.github/workflows/ci.yml`) runs all of them on every pull request and on main. The records are validated against
-the published `@openpresentation/opf` and drawn by the published `@openpresentation/opf-render` that `package.json`
-pins exactly: raise those pins in their own pull request, after the OPF release is on npm, and regenerate the previews
-(`npm run previews`) in it. 2.x needs `@openpresentation/opf` 0.19 or later, the first core that reads `opf-layout/v2`.
+CI (`.github/workflows/ci.yml`) runs this sequence on every pull request and on main. Gallery 3.0.0 uses the
+[merged-source bootstrap](#gallery-300-bootstrap); its ordinary development pins remain unchanged. Other versions
+use the published `@openpresentation/opf` and `@openpresentation/opf-render` pins in `package.json`. Raise those pins
+in their own pull request after the engine releases are on npm, and regenerate the previews (`npm run previews`)
+there. 2.x needs `@openpresentation/opf` 0.19 or later, the first core that reads `opf-layout/v2`.
 
 ## Versions
 
