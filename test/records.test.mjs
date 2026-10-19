@@ -77,3 +77,31 @@ test("the repository and the package are MIT", () => {
   assert.deepEqual(licenseProblems(license, manifest), []);
   assert.deepEqual(licenseProblems("Apache License\n", { license: "Apache-2.0", files: ["dist"] }).length, 6);
 });
+
+test("every theme offers its variants: light and dark maps over its one color scheme", async () => {
+  const { records } = await readSnapshotKind(catalogRoot, "themes");
+  assert.deepEqual(records.map((record) => record.id), ["minimal", "classic", "bold"], "the dark theme is a variant of each theme");
+  const slots = ["light1", "light2", "dark1", "dark2"];
+  const accents = ["accent1", "accent2", "accent3", "accent4", "accent5", "accent6"];
+  for (const theme of records) {
+    const { variants } = theme;
+    assert.ok(Array.isArray(variants) && variants.length >= 4, `${theme.id}: variants`);
+    assert.equal(new Set(variants.map((variant) => variant.id)).size, variants.length, `${theme.id}: variant ids are unique`);
+    for (const variant of variants) {
+      assert.match(variant.id, /^[a-z][a-z0-9-]*$/, `${theme.id}/${variant.id}: id`);
+      assert.ok(variant.name?.trim(), `${theme.id}/${variant.id}: name`);
+      assert.deepEqual(Object.keys(variant).sort(), ["id", "name", "variant"], `${theme.id}/${variant.id}: members`);
+      // The value of design.variant: a background slot, or { background, accents? } with a permutation of the accents.
+      const value = variant.variant;
+      const background = typeof value === "string" ? value : value.background;
+      assert.ok(slots.includes(background), `${theme.id}/${variant.id}: background slot ${background}`);
+      if (typeof value === "object") {
+        assert.deepEqual(Object.keys(value).sort(), ["accents", "background"], `${theme.id}/${variant.id}: object members`);
+        assert.deepEqual([...value.accents].sort(), accents, `${theme.id}/${variant.id}: accents are a permutation of the six slots`);
+      }
+    }
+    const backgrounds = variants.map((variant) => (typeof variant.variant === "string" ? variant.variant : variant.variant.background));
+    assert.ok(backgrounds.some((slot) => slot.startsWith("light")) && backgrounds.some((slot) => slot.startsWith("dark")), `${theme.id}: a light and a dark variant`);
+    assert.ok(backgrounds.includes(theme.background.slot), `${theme.id}: one variant is the theme's own background ${theme.background.slot}`);
+  }
+});
