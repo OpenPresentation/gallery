@@ -67,8 +67,8 @@
     "prepack": "node scripts/build.mjs"
   },
   "devDependencies": {
-    "@openpresentation/opf": "0.22.2",
-    "@openpresentation/opf-render": "0.22.2",
+    "@openpresentation/opf": "0.23.0",
+    "@openpresentation/opf-render": "0.23.0",
     "@resvg/resvg-js": "2.6.2",
     "typescript": "~5.9.3"
   }

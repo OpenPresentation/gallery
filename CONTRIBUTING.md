@@ -119,7 +119,7 @@ By contributing you agree that your contribution is licensed under the [MIT Lice
 
 ## Gallery 3.0.0 bootstrap
 
-From 4.0.0 the development pins are the published `@openpresentation/opf` and `@openpresentation/opf-render` 0.22.2, and
+From 4.0.0 the development pins are the published `@openpresentation/opf` and `@openpresentation/opf-render` 0.23.0, and
 `scripts/bootstrap-engines.mjs` does nothing for any version but 3.0.0 (it prints the registry engines). The text below
 describes the 3.0.0 release.
 
