@@ -82,6 +82,10 @@ CI (`.github/workflows/ci.yml`) runs this sequence on every pull request and on 
 use the published `@openpresentation/opf` and `@openpresentation/opf-render` pins in `package.json`. Raise those pins
 in their own pull request after the engine releases are on npm, and regenerate the previews (`npm run previews`)
 there. 2.x needs `@openpresentation/opf` 0.19 or later, the first core that reads `opf-layout/v2`.
+A change to the shape of a layout record (5.0.0: `direction` and an ordered `regions` list, FA-33) is read by the engines before it
+is written here: publish the core that accepts the new form, raise the pins and regenerate the previews in the same pull request
+as the records. The records, tests and fixtures carry only the current form; the 4.0.0 grids live in
+`test/fixtures/layouts-4.0.0.json`, the expected side of `test/layout-equivalence.test.mjs`.
 
 ## Versions
 
