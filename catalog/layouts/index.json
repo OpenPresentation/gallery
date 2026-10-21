@@ -2,8 +2,8 @@
   "$schema": "https://openpresentation.org/schema/opf-catalog-index/v1",
   "kind": "layouts",
   "version": "1",
-  "description": "The built-in slide layouts of OPF 0.19: 28 grid templates (opf-layout/v2) named by intent, in six groups (Openers and closers, Text, Groups of items, Numbers, Visuals, Mixed), in picker order. Each entry names the record's id, name, one-line summary and group; the full record (areas, columns, rows and regions) lives in the per-id JSON file alongside this index.",
-  "contentSha256": "33717fa0132e34e458d933b9280e5665a4f7385b8d15f41b984df5d1083a5202",
+  "description": "The built-in slide layouts: grid templates (opf-layout/v2) named by intent, in six groups (Openers and closers, Text, Groups of items, Numbers, Visuals, Mixed), in picker order. Each entry names the record's id, name, one-line summary and group; the full record (areas, columns, rows and regions) lives in the per-id JSON file alongside this index.",
+  "contentSha256": "8c193b8cafa536996dc3daba7d21b4090a6d424bcafaf113a1e16b57a2d8c5f4",
   "records": [
     {
       "id": "cover",
@@ -25,6 +25,13 @@
       "summary": "What the talk covers: the parts, as one list that flows into columns when long.",
       "group": "Openers and closers",
       "file": "agenda.json"
+    },
+    {
+      "id": "agenda-split",
+      "name": "Agenda beside",
+      "summary": "A concise agenda beside its title and introduction.",
+      "group": "Openers and closers",
+      "file": "agenda-split.json"
     },
     {
       "id": "statement",
@@ -67,6 +74,13 @@
       "summary": "Two independent columns of any content.",
       "group": "Text",
       "file": "two-column.json"
+    },
+    {
+      "id": "three-column",
+      "name": "Three columns",
+      "summary": "Three independent columns of any content.",
+      "group": "Text",
+      "file": "three-column.json"
     },
     {
       "id": "pillars",

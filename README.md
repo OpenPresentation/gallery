@@ -67,6 +67,7 @@ automatically. A deck's own layouts are records of the same schema under `catalo
 | `cover` | The opening slide: title, subtitle and an optional picture. |
 | `section` | A divider between parts: the section title and an optional subtitle. |
 | `agenda` | What the talk covers: the parts, as one list that flows into columns when long. |
+| `agenda-split` | A concise agenda beside its title and introduction. |
 | `statement` | One message, large and alone. |
 | `closing` | The last slide: thanks, the call to action and contact details. |
 | **Text** | |
@@ -74,6 +75,7 @@ automatically. A deck's own layouts are records of the same schema under `catalo
 | `list` | Bulleted or numbered points; one long list flows into columns. |
 | `quote` | One or more quotations with attribution and photo. |
 | `two-column` | Two independent columns of any content. |
+| `three-column` | Three independent columns of any content. |
 | **Groups of items** | |
 | `pillars` | Two to six ideas of equal weight, as cards. |
 | `comparison` | Two options side by side (before and after, pros and cons, us and them), with an optional verdict. |

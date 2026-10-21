@@ -55,11 +55,11 @@
     },
     "layouts": {
       "mode": "mirror",
-      "records": 28,
-      "contentSha256": "33717fa0132e34e458d933b9280e5665a4f7385b8d15f41b984df5d1083a5202",
+      "records": 30,
+      "contentSha256": "8c193b8cafa536996dc3daba7d21b4090a6d424bcafaf113a1e16b57a2d8c5f4",
       "gallery": {
-        "records": 28,
-        "contentSha256": "33717fa0132e34e458d933b9280e5665a4f7385b8d15f41b984df5d1083a5202"
+        "records": 30,
+        "contentSha256": "8c193b8cafa536996dc3daba7d21b4090a6d424bcafaf113a1e16b57a2d8c5f4"
       }
     },
     "narratives": {
