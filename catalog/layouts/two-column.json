@@ -6,6 +6,9 @@
   "tags": [
     "Text"
   ],
+  "design": {
+    "imageFit": "contain"
+  },
   "areas": [
     [
       "title",
@@ -36,6 +39,7 @@
         "chart",
         "table",
         "metric",
+        "timeline",
         "group"
       ],
       "role": "primary",
@@ -52,6 +56,7 @@
         "chart",
         "table",
         "metric",
+        "timeline",
         "group"
       ],
       "role": "primary",

@@ -15,10 +15,10 @@ import { loadValidators } from "../scripts/sync-gallery-catalog.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogRoot = path.join(root, "catalog");
 
-/** The built-in layouts of OPF 0.19 (the 0.19 layouts design, section 6), in picker order. */
+/** The built-in intent layouts, in picker order. */
 const LAYOUT_IDS = [
-  "cover", "section", "agenda", "statement", "closing",
-  "text", "list", "quote", "two-column",
+  "cover", "section", "agenda", "agenda-split", "statement", "closing",
+  "text", "list", "quote", "two-column", "three-column",
   "pillars", "comparison", "process", "timeline", "faq",
   "metrics", "scorecard",
   "image", "image-beside", "gallery", "chart", "chart-beside", "table", "table-beside", "code",
@@ -39,7 +39,7 @@ test("every record is valid against the published core's companion schema", asyn
   assert.ok(count > 300, `${count} records`);
 });
 
-test("the layouts are the 28 OPF 0.19 intent templates, in six groups, each passing core's template rules", async () => {
+test("the layouts are the intent templates, in six groups, each passing core's template rules", async () => {
   const { index, records } = await readSnapshotKind(catalogRoot, "layouts");
   assert.deepEqual(records.map((record) => record.id), LAYOUT_IDS);
   for (const record of records) {

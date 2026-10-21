@@ -8,14 +8,24 @@
   ],
   "design": {
     "titleAlignment": "center",
-    "contentAlignment": "center"
+    "contentAlignment": "center",
+    "imageFit": "contain"
   },
   "areas": [
+    [
+      "."
+    ],
     [
       "title"
     ],
     [
+      "."
+    ],
+    [
       "details"
+    ],
+    [
+      "."
     ]
   ],
   "columns": [
@@ -23,7 +33,10 @@
   ],
   "rows": [
     1,
-    "auto"
+    "auto",
+    "auto",
+    "auto",
+    1
   ],
   "regions": {
     "details": {
